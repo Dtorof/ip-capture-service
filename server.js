@@ -1,6 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000;
+
+// Habilitar CORS para todas las solicitudes
+app.use(cors());
 
 // Endpoint para capturar la IP pública del cliente
 app.get('/get-ip', (req, res) => {
@@ -9,7 +13,7 @@ app.get('/get-ip', (req, res) => {
   res.json({ ip: clientIp });
 });
 
-// Iniciar el servidor, escuchando en todas las interfaces
+// Iniciar el servidor
 app.listen(port, '0.0.0.0', () => {
   console.log(`Servicio de captura de IP pública corriendo en http://localhost:${port}`);
 });
