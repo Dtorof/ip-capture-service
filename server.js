@@ -4,7 +4,7 @@ const port = 3000;
 
 // Endpoint para capturar la IP pública del cliente
 app.get('/get-ip', (req, res) => {
-  const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+  const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress).split(',')[0].trim();
   console.log(`IP del cliente: ${clientIp}`);
   res.json({ ip: clientIp });
 });
