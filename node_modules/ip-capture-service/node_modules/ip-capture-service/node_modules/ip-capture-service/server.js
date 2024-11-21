@@ -16,6 +16,7 @@ app.get('/get-ip', (req, res) => {
 });
 
 // Iniciar el servidor
-app.listen(port, '0.0.0.0', () => {
+
+app.listen(port, () => {
   console.log(`Servicio de captura de IP pública corriendo en http://localhost:${port}`);
-});
+})
